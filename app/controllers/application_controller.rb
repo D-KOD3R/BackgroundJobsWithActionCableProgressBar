@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
+  private
+  def redirect_and_flash message, message_type, path
+    flash[message_type] = message
+    redirect_to path
+  end
+
 end

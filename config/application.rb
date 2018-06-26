@@ -9,6 +9,9 @@ Bundler.require(*Rails.groups)
 module RailsDevise
   class Application < Rails::Application
 
+    #Enqueuing Adapter
+    config.active_job.queue_adapter = :sidekiq
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
